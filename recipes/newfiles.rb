@@ -15,7 +15,7 @@ template 'file from template' do
   source 'index.html.erb'
   path   "#{dest}"
   variables(
-    title: 'Gayatri',
+    title: 'Gayatri - VER 0.2.0',
     desc: 'DevOps Professionals!'
   )
 end
