@@ -6,8 +6,23 @@
 
 require 'spec_helper'
 
+describe 'test::newfiles' do
+  context 'When all attributes are default, on Windows' do
+    platform 'windows'
+
+    it 'converges successfully' do
+      expect { chef_run }.to_not raise_error
+    end
+  
+    it 'expected to copy C:/newfile.txt' do
+       expect(chef_run).to create_cookbook_file('C:/newfile1.txt')
+    end
+  end
+
+end
+
 describe 'test::default' do
-  context 'When all attributes are default, on Ubuntu 20.04' do
+  context 'When all attributes are default, on Windows' do
     # for a complete list of available platforms and versions see:
     # https://github.com/chefspec/fauxhai/blob/master/PLATFORMS.md
     # platform 'ubuntu', '20.04'
@@ -15,7 +30,7 @@ describe 'test::default' do
 
     it 'converges successfully' do
       expect { chef_run }.to_not raise_error
-    end
+    end  
   end
 
   context 'When all attributes are default, on CentOS 8' do

@@ -1,7 +1,12 @@
 
+
+test_from_git 'https://github.com/gayatri-sa/simple_dotnet' do
+  folder_name 'simple2'
+end
+
 cookbook_file 'copy dummy file' do
   source 'dummy.txt'
-  path 'C:/newfile.txt'
+  path 'C:/newfile1.txt'
   only_if { platform?('windows') }
 end
 
